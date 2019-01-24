@@ -4,7 +4,7 @@
 #
 Name     : git-gui
 Version  : 2.20.1
-Release  : 1
+Release  : 2
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.xz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.xz
 Summary  : No detailed summary available
@@ -14,7 +14,6 @@ Requires: git-gui-bin = %{version}-%{release}
 Requires: git-gui-data = %{version}-%{release}
 Requires: git-gui-libexec = %{version}-%{release}
 Requires: git-gui-license = %{version}-%{release}
-Requires: git-gui-locales = %{version}-%{release}
 BuildRequires : asciidoc
 BuildRequires : buildreq-golang
 BuildRequires : curl-dev
@@ -78,14 +77,6 @@ Group: Default
 license components for the git-gui package.
 
 
-%package locales
-Summary: locales components for the git-gui package.
-Group: Default
-
-%description locales
-locales components for the git-gui package.
-
-
 %prep
 %setup -q -n git-2.20.1
 
@@ -94,12 +85,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548337985
+export SOURCE_DATE_EPOCH=1548338265
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1548337985
+export SOURCE_DATE_EPOCH=1548338265
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp COPYING %{buildroot}/usr/share/package-licenses/git-gui/COPYING
@@ -110,7 +101,9 @@ cp sha1dc/LICENSE.txt %{buildroot}/usr/share/package-licenses/git-gui/sha1dc_LIC
 cp t/diff-lib/COPYING %{buildroot}/usr/share/package-licenses/git-gui/t_diff-lib_COPYING
 cp vcs-svn/LICENSE %{buildroot}/usr/share/package-licenses/git-gui/vcs-svn_LICENSE
 %make_install
-%find_lang git
+## install_append content
+rm -rf %{buildroot}/usr/share/locale
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -123,7 +116,7 @@ cp vcs-svn/LICENSE %{buildroot}/usr/share/package-licenses/git-gui/vcs-svn_LICEN
 %exclude /usr/bin/git-shell
 %exclude /usr/bin/git-upload-archive
 %exclude /usr/bin/git-upload-pack
-%exclude /usr/bin/gitk
+/usr/bin/gitk
 
 %files data
 %defattr(-,root,root,-)
@@ -140,74 +133,6 @@ cp vcs-svn/LICENSE %{buildroot}/usr/share/package-licenses/git-gui/vcs-svn_LICEN
 %exclude /usr/share/git-core/templates/hooks/prepare-commit-msg.sample
 %exclude /usr/share/git-core/templates/hooks/update.sample
 %exclude /usr/share/git-core/templates/info/exclude
-%exclude /usr/share/git-gui/lib/about.tcl
-%exclude /usr/share/git-gui/lib/blame.tcl
-%exclude /usr/share/git-gui/lib/branch.tcl
-%exclude /usr/share/git-gui/lib/branch_checkout.tcl
-%exclude /usr/share/git-gui/lib/branch_create.tcl
-%exclude /usr/share/git-gui/lib/branch_delete.tcl
-%exclude /usr/share/git-gui/lib/branch_rename.tcl
-%exclude /usr/share/git-gui/lib/browser.tcl
-%exclude /usr/share/git-gui/lib/checkout_op.tcl
-%exclude /usr/share/git-gui/lib/choose_font.tcl
-%exclude /usr/share/git-gui/lib/choose_repository.tcl
-%exclude /usr/share/git-gui/lib/choose_rev.tcl
-%exclude /usr/share/git-gui/lib/class.tcl
-%exclude /usr/share/git-gui/lib/commit.tcl
-%exclude /usr/share/git-gui/lib/console.tcl
-%exclude /usr/share/git-gui/lib/database.tcl
-%exclude /usr/share/git-gui/lib/date.tcl
-%exclude /usr/share/git-gui/lib/diff.tcl
-%exclude /usr/share/git-gui/lib/encoding.tcl
-%exclude /usr/share/git-gui/lib/error.tcl
-%exclude /usr/share/git-gui/lib/git-gui.ico
-%exclude /usr/share/git-gui/lib/index.tcl
-%exclude /usr/share/git-gui/lib/line.tcl
-%exclude /usr/share/git-gui/lib/logo.tcl
-%exclude /usr/share/git-gui/lib/merge.tcl
-%exclude /usr/share/git-gui/lib/mergetool.tcl
-%exclude /usr/share/git-gui/lib/msgs/bg.msg
-%exclude /usr/share/git-gui/lib/msgs/de.msg
-%exclude /usr/share/git-gui/lib/msgs/el.msg
-%exclude /usr/share/git-gui/lib/msgs/fr.msg
-%exclude /usr/share/git-gui/lib/msgs/hu.msg
-%exclude /usr/share/git-gui/lib/msgs/it.msg
-%exclude /usr/share/git-gui/lib/msgs/ja.msg
-%exclude /usr/share/git-gui/lib/msgs/nb.msg
-%exclude /usr/share/git-gui/lib/msgs/pt_br.msg
-%exclude /usr/share/git-gui/lib/msgs/pt_pt.msg
-%exclude /usr/share/git-gui/lib/msgs/ru.msg
-%exclude /usr/share/git-gui/lib/msgs/sv.msg
-%exclude /usr/share/git-gui/lib/msgs/vi.msg
-%exclude /usr/share/git-gui/lib/msgs/zh_cn.msg
-%exclude /usr/share/git-gui/lib/option.tcl
-%exclude /usr/share/git-gui/lib/remote.tcl
-%exclude /usr/share/git-gui/lib/remote_add.tcl
-%exclude /usr/share/git-gui/lib/remote_branch_delete.tcl
-%exclude /usr/share/git-gui/lib/search.tcl
-%exclude /usr/share/git-gui/lib/shortcut.tcl
-%exclude /usr/share/git-gui/lib/spellcheck.tcl
-%exclude /usr/share/git-gui/lib/sshkey.tcl
-%exclude /usr/share/git-gui/lib/status_bar.tcl
-%exclude /usr/share/git-gui/lib/tclIndex
-%exclude /usr/share/git-gui/lib/themed.tcl
-%exclude /usr/share/git-gui/lib/tools.tcl
-%exclude /usr/share/git-gui/lib/tools_dlg.tcl
-%exclude /usr/share/git-gui/lib/transport.tcl
-%exclude /usr/share/git-gui/lib/win32.tcl
-%exclude /usr/share/git-gui/lib/win32_shortcut.js
-%exclude /usr/share/gitk/lib/msgs/bg.msg
-%exclude /usr/share/gitk/lib/msgs/ca.msg
-%exclude /usr/share/gitk/lib/msgs/de.msg
-%exclude /usr/share/gitk/lib/msgs/es.msg
-%exclude /usr/share/gitk/lib/msgs/fr.msg
-%exclude /usr/share/gitk/lib/msgs/hu.msg
-%exclude /usr/share/gitk/lib/msgs/it.msg
-%exclude /usr/share/gitk/lib/msgs/ja.msg
-%exclude /usr/share/gitk/lib/msgs/pt_br.msg
-%exclude /usr/share/gitk/lib/msgs/ru.msg
-%exclude /usr/share/gitk/lib/msgs/sv.msg
-%exclude /usr/share/gitk/lib/msgs/vi.msg
 %exclude /usr/share/gitweb/gitweb.cgi
 %exclude /usr/share/gitweb/static/git-favicon.png
 %exclude /usr/share/gitweb/static/git-logo.png
@@ -232,7 +157,75 @@ cp vcs-svn/LICENSE %{buildroot}/usr/share/package-licenses/git-gui/vcs-svn_LICEN
 %exclude /usr/share/perl5/Git/SVN/Prompt.pm
 %exclude /usr/share/perl5/Git/SVN/Ra.pm
 %exclude /usr/share/perl5/Git/SVN/Utils.pm
+/usr/share/git-gui/lib/about.tcl
+/usr/share/git-gui/lib/blame.tcl
+/usr/share/git-gui/lib/branch.tcl
+/usr/share/git-gui/lib/branch_checkout.tcl
+/usr/share/git-gui/lib/branch_create.tcl
+/usr/share/git-gui/lib/branch_delete.tcl
+/usr/share/git-gui/lib/branch_rename.tcl
+/usr/share/git-gui/lib/browser.tcl
+/usr/share/git-gui/lib/checkout_op.tcl
+/usr/share/git-gui/lib/choose_font.tcl
+/usr/share/git-gui/lib/choose_repository.tcl
+/usr/share/git-gui/lib/choose_rev.tcl
+/usr/share/git-gui/lib/class.tcl
+/usr/share/git-gui/lib/commit.tcl
+/usr/share/git-gui/lib/console.tcl
+/usr/share/git-gui/lib/database.tcl
+/usr/share/git-gui/lib/date.tcl
+/usr/share/git-gui/lib/diff.tcl
+/usr/share/git-gui/lib/encoding.tcl
+/usr/share/git-gui/lib/error.tcl
+/usr/share/git-gui/lib/git-gui.ico
+/usr/share/git-gui/lib/index.tcl
+/usr/share/git-gui/lib/line.tcl
+/usr/share/git-gui/lib/logo.tcl
+/usr/share/git-gui/lib/merge.tcl
+/usr/share/git-gui/lib/mergetool.tcl
+/usr/share/git-gui/lib/msgs/bg.msg
+/usr/share/git-gui/lib/msgs/de.msg
+/usr/share/git-gui/lib/msgs/el.msg
+/usr/share/git-gui/lib/msgs/fr.msg
+/usr/share/git-gui/lib/msgs/hu.msg
+/usr/share/git-gui/lib/msgs/it.msg
+/usr/share/git-gui/lib/msgs/ja.msg
+/usr/share/git-gui/lib/msgs/nb.msg
+/usr/share/git-gui/lib/msgs/pt_br.msg
+/usr/share/git-gui/lib/msgs/pt_pt.msg
+/usr/share/git-gui/lib/msgs/ru.msg
+/usr/share/git-gui/lib/msgs/sv.msg
+/usr/share/git-gui/lib/msgs/vi.msg
+/usr/share/git-gui/lib/msgs/zh_cn.msg
+/usr/share/git-gui/lib/option.tcl
+/usr/share/git-gui/lib/remote.tcl
+/usr/share/git-gui/lib/remote_add.tcl
+/usr/share/git-gui/lib/remote_branch_delete.tcl
+/usr/share/git-gui/lib/search.tcl
+/usr/share/git-gui/lib/shortcut.tcl
+/usr/share/git-gui/lib/spellcheck.tcl
+/usr/share/git-gui/lib/sshkey.tcl
+/usr/share/git-gui/lib/status_bar.tcl
+/usr/share/git-gui/lib/tclIndex
+/usr/share/git-gui/lib/themed.tcl
+/usr/share/git-gui/lib/tools.tcl
+/usr/share/git-gui/lib/tools_dlg.tcl
+/usr/share/git-gui/lib/transport.tcl
+/usr/share/git-gui/lib/win32.tcl
+/usr/share/git-gui/lib/win32_shortcut.js
+/usr/share/gitk/lib/msgs/bg.msg
+/usr/share/gitk/lib/msgs/ca.msg
+/usr/share/gitk/lib/msgs/de.msg
+/usr/share/gitk/lib/msgs/es.msg
+/usr/share/gitk/lib/msgs/fr.msg
+/usr/share/gitk/lib/msgs/hu.msg
+/usr/share/gitk/lib/msgs/it.msg
+/usr/share/gitk/lib/msgs/ja.msg
+/usr/share/gitk/lib/msgs/pt_br.msg
 /usr/share/gitk/lib/msgs/pt_pt.msg
+/usr/share/gitk/lib/msgs/ru.msg
+/usr/share/gitk/lib/msgs/sv.msg
+/usr/share/gitk/lib/msgs/vi.msg
 
 %files libexec
 %defattr(-,root,root,-)
@@ -295,8 +288,6 @@ cp vcs-svn/LICENSE %{buildroot}/usr/share/package-licenses/git-gui/vcs-svn_LICEN
 %exclude /usr/libexec/git-core/git-gc
 %exclude /usr/libexec/git-core/git-get-tar-commit-id
 %exclude /usr/libexec/git-core/git-grep
-%exclude /usr/libexec/git-core/git-gui
-%exclude /usr/libexec/git-core/git-gui--askpass
 %exclude /usr/libexec/git-core/git-hash-object
 %exclude /usr/libexec/git-core/git-help
 %exclude /usr/libexec/git-core/git-http-backend
@@ -434,6 +425,8 @@ cp vcs-svn/LICENSE %{buildroot}/usr/share/package-licenses/git-gui/vcs-svn_LICEN
 %exclude /usr/libexec/git-core/mergetools/vimdiff3
 %exclude /usr/libexec/git-core/mergetools/winmerge
 %exclude /usr/libexec/git-core/mergetools/xxdiff
+/usr/libexec/git-core/git-gui
+/usr/libexec/git-core/git-gui--askpass
 
 %files license
 %defattr(0644,root,root,0755)
@@ -444,7 +437,3 @@ cp vcs-svn/LICENSE %{buildroot}/usr/share/package-licenses/git-gui/vcs-svn_LICEN
 /usr/share/package-licenses/git-gui/sha1dc_LICENSE.txt
 /usr/share/package-licenses/git-gui/t_diff-lib_COPYING
 /usr/share/package-licenses/git-gui/vcs-svn_LICENSE
-
-%files locales -f git.lang
-%defattr(-,root,root,-)
-
