@@ -4,7 +4,7 @@
 #
 Name     : git-gui
 Version  : 2.22.0
-Release  : 4
+Release  : 5
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.22.0.tar.xz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.22.0.tar.xz
 Summary  : No detailed summary available
@@ -34,13 +34,11 @@ BuildRequires : xmlto
 BuildRequires : zlib-dev
 
 %description
-git-jump
-========
-Git-jump is a script for helping you jump to "interesting" parts of your
-project in your editor. It works by outputting a set of interesting
-spots in the "quickfix" format, which editors like vim can use as a
-queue of places to visit (this feature is usually used to jump to errors
-produced by a compiler). For example, given a diff like this:
+Core GIT Tests
+==============
+This directory holds many test scripts for core GIT tools.  The
+first part of this short document describes how to run the tests
+and read their output.
 
 %package bin
 Summary: bin components for the git-gui package.
@@ -86,7 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1561472049
+export SOURCE_DATE_EPOCH=1561475791
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -99,7 +97,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1561472049
+export SOURCE_DATE_EPOCH=1561475791
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp COPYING %{buildroot}/usr/share/package-licenses/git-gui/COPYING
@@ -308,6 +306,7 @@ rm -rf %{buildroot}/usr/share/locale
 %exclude /usr/libexec/git-core/git-init-db
 %exclude /usr/libexec/git-core/git-instaweb
 %exclude /usr/libexec/git-core/git-interpret-trailers
+%exclude /usr/libexec/git-core/git-legacy-stash
 %exclude /usr/libexec/git-core/git-log
 %exclude /usr/libexec/git-core/git-ls-files
 %exclude /usr/libexec/git-core/git-ls-remote
@@ -423,6 +422,7 @@ rm -rf %{buildroot}/usr/share/locale
 %exclude /usr/libexec/git-core/mergetools/meld
 %exclude /usr/libexec/git-core/mergetools/opendiff
 %exclude /usr/libexec/git-core/mergetools/p4merge
+%exclude /usr/libexec/git-core/mergetools/smerge
 %exclude /usr/libexec/git-core/mergetools/tkdiff
 %exclude /usr/libexec/git-core/mergetools/tortoisemerge
 %exclude /usr/libexec/git-core/mergetools/vimdiff
@@ -432,8 +432,6 @@ rm -rf %{buildroot}/usr/share/locale
 %exclude /usr/libexec/git-core/mergetools/xxdiff
 /usr/libexec/git-core/git-gui
 /usr/libexec/git-core/git-gui--askpass
-/usr/libexec/git-core/git-legacy-stash
-/usr/libexec/git-core/mergetools/smerge
 
 %files license
 %defattr(0644,root,root,0755)
