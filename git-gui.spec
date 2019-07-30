@@ -4,7 +4,7 @@
 #
 Name     : git-gui
 Version  : 2.22.0
-Release  : 6
+Release  : 7
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.22.0.tar.xz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.22.0.tar.xz
 Summary  : No detailed summary available
