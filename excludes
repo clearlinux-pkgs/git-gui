@@ -443,6 +443,6 @@
 /usr/share/man/man7/gittutorial-2.7
 /usr/share/man/man7/gittutorial.7
 /usr/share/man/man7/gitworkflows.7
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/Git/.packlist
+/usr/lib/perl5/site_perl/5.*/x86_64-linux-thread-multi/auto/Git/.packlist
 /usr/libexec/git-core/git-legacy-stash
 /usr/libexec/git-core/mergetools/smerge
