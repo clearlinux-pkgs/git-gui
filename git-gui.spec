@@ -4,7 +4,7 @@
 #
 Name     : git-gui
 Version  : 2.23.0
-Release  : 9
+Release  : 10
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.23.0.tar.xz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.23.0.tar.xz
 Summary  : No detailed summary available
@@ -34,13 +34,11 @@ BuildRequires : xmlto
 BuildRequires : zlib-dev
 
 %description
-git-jump
-========
-Git-jump is a script for helping you jump to "interesting" parts of your
-project in your editor. It works by outputting a set of interesting
-spots in the "quickfix" format, which editors like vim can use as a
-queue of places to visit (this feature is usually used to jump to errors
-produced by a compiler). For example, given a diff like this:
+Core GIT Tests
+==============
+This directory holds many test scripts for core GIT tools.  The
+first part of this short document describes how to run the tests
+and read their output.
 
 %package bin
 Summary: bin components for the git-gui package.
@@ -86,8 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565998345
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1566000573
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -100,7 +97,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1565998345
+export SOURCE_DATE_EPOCH=1566000573
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp COPYING %{buildroot}/usr/share/package-licenses/git-gui/COPYING
@@ -560,6 +557,9 @@ rm -f %{buildroot}/usr/share/man/man7/gitworkflows.7
 rm -f %{buildroot}/usr/lib/perl5/site_perl/5.*/x86_64-linux-thread-multi/auto/Git/.packlist
 rm -f %{buildroot}/usr/libexec/git-core/git-legacy-stash
 rm -f %{buildroot}/usr/libexec/git-core/mergetools/smerge
+rm -f %{buildroot}/usr/libexec/git-core/git-switch
+rm -f %{buildroot}/usr/libexec/git-core/git-restore
+rm -f %{buildroot}/usr/libexec/git-core/git-env--helper
 ## install_append content
 rm -rf %{buildroot}/usr/share/locale
 ## install_append end
@@ -645,11 +645,8 @@ rm -rf %{buildroot}/usr/share/locale
 
 %files libexec
 %defattr(-,root,root,-)
-/usr/libexec/git-core/git-env--helper
 /usr/libexec/git-core/git-gui
 /usr/libexec/git-core/git-gui--askpass
-/usr/libexec/git-core/git-restore
-/usr/libexec/git-core/git-switch
 
 %files license
 %defattr(0644,root,root,0755)

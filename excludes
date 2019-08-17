@@ -446,3 +446,6 @@
 /usr/lib/perl5/site_perl/5.*/x86_64-linux-thread-multi/auto/Git/.packlist
 /usr/libexec/git-core/git-legacy-stash
 /usr/libexec/git-core/mergetools/smerge
+/usr/libexec/git-core/git-switch
+/usr/libexec/git-core/git-restore
+/usr/libexec/git-core/git-env--helper
