@@ -449,3 +449,4 @@
 /usr/libexec/git-core/git-switch
 /usr/libexec/git-core/git-restore
 /usr/libexec/git-core/git-env--helper
+/usr/share/git-core/templates/hooks/pre-merge-commit.sample

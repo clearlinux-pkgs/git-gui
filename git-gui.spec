@@ -4,7 +4,7 @@
 #
 Name     : git-gui
 Version  : 2.24.0
-Release  : 11
+Release  : 12
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.24.0.tar.xz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.24.0.tar.xz
 Summary  : No detailed summary available
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1572876599
+export SOURCE_DATE_EPOCH=1572919027
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -100,7 +100,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1572876599
+export SOURCE_DATE_EPOCH=1572919027
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp %{_builddir}/git-2.24.0/COPYING %{buildroot}/usr/share/package-licenses/git-gui/3ee0019d4f4ea0a9d3f50800833f30dc14e2968e
@@ -563,6 +563,7 @@ rm -f %{buildroot}/usr/libexec/git-core/mergetools/smerge
 rm -f %{buildroot}/usr/libexec/git-core/git-switch
 rm -f %{buildroot}/usr/libexec/git-core/git-restore
 rm -f %{buildroot}/usr/libexec/git-core/git-env--helper
+rm -f %{buildroot}/usr/share/git-core/templates/hooks/pre-merge-commit.sample
 ## install_append content
 rm -rf %{buildroot}/usr/share/locale
 ## install_append end
@@ -576,7 +577,6 @@ rm -rf %{buildroot}/usr/share/locale
 
 %files data
 %defattr(-,root,root,-)
-/usr/share/git-core/templates/hooks/pre-merge-commit.sample
 /usr/share/git-gui/lib/about.tcl
 /usr/share/git-gui/lib/blame.tcl
 /usr/share/git-gui/lib/branch.tcl
