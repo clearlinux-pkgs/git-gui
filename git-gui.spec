@@ -4,7 +4,7 @@
 #
 Name     : git-gui
 Version  : 2.25.0
-Release  : 14
+Release  : 15
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.25.0.tar.xz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.25.0.tar.xz
 Summary  : No detailed summary available
@@ -34,13 +34,11 @@ BuildRequires : xmlto
 BuildRequires : zlib-dev
 
 %description
-git-jump
-========
-Git-jump is a script for helping you jump to "interesting" parts of your
-project in your editor. It works by outputting a set of interesting
-spots in the "quickfix" format, which editors like vim can use as a
-queue of places to visit (this feature is usually used to jump to errors
-produced by a compiler). For example, given a diff like this:
+Core GIT Tests
+==============
+This directory holds many test scripts for core GIT tools.  The
+first part of this short document describes how to run the tests
+and read their output.
 
 %package bin
 Summary: bin components for the git-gui package.
@@ -87,8 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578965026
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1578970183
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -101,7 +98,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1578965026
+export SOURCE_DATE_EPOCH=1578970183
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp %{_builddir}/git-2.25.0/COPYING %{buildroot}/usr/share/package-licenses/git-gui/3ee0019d4f4ea0a9d3f50800833f30dc14e2968e
@@ -564,6 +561,7 @@ rm -f %{buildroot}/usr/libexec/git-core/mergetools/smerge
 rm -f %{buildroot}/usr/libexec/git-core/git-switch
 rm -f %{buildroot}/usr/libexec/git-core/git-restore
 rm -f %{buildroot}/usr/libexec/git-core/git-env--helper
+rm -f %{buildroot}/usr/libexec/git-core/git-sparse-checkout
 rm -f %{buildroot}/usr/share/git-core/templates/hooks/pre-merge-commit.sample
 ## install_append content
 rm -rf %{buildroot}/usr/share/locale
@@ -654,7 +652,6 @@ rm -rf %{buildroot}/usr/share/locale
 %defattr(-,root,root,-)
 /usr/libexec/git-core/git-gui
 /usr/libexec/git-core/git-gui--askpass
-/usr/libexec/git-core/git-sparse-checkout
 
 %files license
 %defattr(0644,root,root,0755)
