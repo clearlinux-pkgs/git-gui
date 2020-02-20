@@ -4,7 +4,7 @@
 #
 Name     : git-gui
 Version  : 2.25.1
-Release  : 16
+Release  : 17
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.25.1.tar.xz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.25.1.tar.xz
 Summary  : No detailed summary available
@@ -14,6 +14,7 @@ Requires: git-gui-bin = %{version}-%{release}
 Requires: git-gui-data = %{version}-%{release}
 Requires: git-gui-libexec = %{version}-%{release}
 Requires: git-gui-license = %{version}-%{release}
+Requires: git = %{version}
 Requires: tk
 BuildRequires : asciidoc
 BuildRequires : buildreq-golang
@@ -34,13 +35,11 @@ BuildRequires : xmlto
 BuildRequires : zlib-dev
 
 %description
-git-jump
-========
-Git-jump is a script for helping you jump to "interesting" parts of your
-project in your editor. It works by outputting a set of interesting
-spots in the "quickfix" format, which editors like vim can use as a
-queue of places to visit (this feature is usually used to jump to errors
-produced by a compiler). For example, given a diff like this:
+Core GIT Tests
+==============
+This directory holds many test scripts for core GIT tools.  The
+first part of this short document describes how to run the tests
+and read their output.
 
 %package bin
 Summary: bin components for the git-gui package.
@@ -87,8 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581988740
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1582227016
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -101,7 +99,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1581988740
+export SOURCE_DATE_EPOCH=1582227016
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp %{_builddir}/git-2.25.1/COPYING %{buildroot}/usr/share/package-licenses/git-gui/3ee0019d4f4ea0a9d3f50800833f30dc14e2968e
