@@ -4,7 +4,7 @@
 #
 Name     : git-gui
 Version  : 2.27.0
-Release  : 22
+Release  : 23
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.27.0.tar.xz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.27.0.tar.xz
 Summary  : No detailed summary available
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591109655
+export SOURCE_DATE_EPOCH=1591116182
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -99,7 +99,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1591109655
+export SOURCE_DATE_EPOCH=1591116182
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp %{_builddir}/git-2.27.0/COPYING %{buildroot}/usr/share/package-licenses/git-gui/3ee0019d4f4ea0a9d3f50800833f30dc14e2968e
@@ -564,6 +564,7 @@ rm -f %{buildroot}/usr/libexec/git-core/git-restore
 rm -f %{buildroot}/usr/libexec/git-core/git-env--helper
 rm -f %{buildroot}/usr/libexec/git-core/git-sparse-checkout
 rm -f %{buildroot}/usr/share/git-core/templates/hooks/pre-merge-commit.sample
+rm -f %{buildroot}/usr/libexec/git-core/git-bugreport
 ## install_append content
 rm -rf %{buildroot}/usr/share/locale
 ## install_append end
@@ -651,7 +652,6 @@ rm -rf %{buildroot}/usr/share/locale
 
 %files libexec
 %defattr(-,root,root,-)
-/usr/libexec/git-core/git-bugreport
 /usr/libexec/git-core/git-gui
 /usr/libexec/git-core/git-gui--askpass
 
