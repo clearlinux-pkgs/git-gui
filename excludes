@@ -452,3 +452,4 @@
 /usr/libexec/git-core/git-sparse-checkout
 /usr/share/git-core/templates/hooks/pre-merge-commit.sample
 /usr/libexec/git-core/git-bugreport
+/usr/libexec/git-core/mergetools/nvimdiff
