@@ -1,1 +1,8 @@
-rm -rf %{buildroot}/usr/share/locale
+make -C Documentation DESTDIR=%{buildroot} %{?_smp_mflags} man install
+(
+  cd %{buildroot}
+  # All non-gui content is installed in the 'git' package
+  find ./usr -regextype egrep \! -regex '.+(gitk|git-gui).*' -delete || :
+  # Clean up empty dirs afterward
+  find ./usr -type d -empty -delete || :
+)
