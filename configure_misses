@@ -3,7 +3,6 @@ Configure miss: POSIX Threads with ''
 Configure miss: POSIX Threads with '-mt'
 Configure miss: gdiff
 Configure miss: gnudiff
-Configure miss: if linker supports -R
 Configure miss: libcharset.h
 Configure miss: libcharset.h presence
 Configure miss: libcharset.h usability
