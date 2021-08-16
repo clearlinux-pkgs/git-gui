@@ -1,6 +1,4 @@
 Configure miss: BSD sysctl
-Configure miss: POSIX Threads with ''
-Configure miss: POSIX Threads with '-mt'
 Configure miss: gdiff
 Configure miss: gnudiff
 Configure miss: libcharset.h
