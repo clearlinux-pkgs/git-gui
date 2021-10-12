@@ -2,8 +2,6 @@ Configure miss: BSD sysctl
 Configure miss: gdiff
 Configure miss: gnudiff
 Configure miss: libcharset.h
-Configure miss: libcharset.h presence
-Configure miss: libcharset.h usability
 Configure miss: locale_charset in -lcharset
 Configure miss: locale_charset in -liconv
 Configure miss: old iconv()
