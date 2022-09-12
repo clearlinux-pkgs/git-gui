@@ -4,7 +4,7 @@
 #
 Name     : git-gui
 Version  : 2.37.3
-Release  : 52
+Release  : 53
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.37.3.tar.xz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.37.3.tar.xz
 Summary  : No detailed summary available
