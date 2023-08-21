@@ -4,10 +4,10 @@
 # Using build pattern: configure
 #
 Name     : git-gui
-Version  : 2.41.0
-Release  : 62
-URL      : https://www.kernel.org/pub/software/scm/git/git-2.41.0.tar.xz
-Source0  : https://www.kernel.org/pub/software/scm/git/git-2.41.0.tar.xz
+Version  : 2.42.0
+Release  : 63
+URL      : https://www.kernel.org/pub/software/scm/git/git-2.42.0.tar.xz
+Source0  : https://www.kernel.org/pub/software/scm/git/git-2.42.0.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause BSL-1.0 GPL-2.0 MIT
@@ -91,15 +91,15 @@ man components for the git-gui package.
 
 
 %prep
-%setup -q -n git-2.41.0
-cd %{_builddir}/git-2.41.0
+%setup -q -n git-2.42.0
+cd %{_builddir}/git-2.42.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685635715
+export SOURCE_DATE_EPOCH=1692650207
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -112,7 +112,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonl
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1685635715
+export SOURCE_DATE_EPOCH=1692650207
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp %{_builddir}/git-%{version}/COPYING %{buildroot}/usr/share/package-licenses/git-gui/3ee0019d4f4ea0a9d3f50800833f30dc14e2968e || :
