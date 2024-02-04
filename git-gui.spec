@@ -7,7 +7,7 @@
 #
 Name     : git-gui
 Version  : 2.43.0
-Release  : 67
+Release  : 68
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.43.0.tar.xz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.43.0.tar.xz
 Summary  : No detailed summary available
@@ -102,7 +102,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1707077480
+export SOURCE_DATE_EPOCH=1707085795
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -145,7 +145,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1707077480
+export SOURCE_DATE_EPOCH=1707085795
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp %{_builddir}/git-%{version}/COPYING %{buildroot}/usr/share/package-licenses/git-gui/3ee0019d4f4ea0a9d3f50800833f30dc14e2968e || :
@@ -158,6 +158,162 @@ pushd ../buildavx2/
 %make_install_v3
 popd
 %make_install
+## Remove excluded files
+rm -f %{buildroot}*/usr/bin/git
+rm -f %{buildroot}*/usr/bin/git-receive-pack
+rm -f %{buildroot}*/usr/bin/git-shell
+rm -f %{buildroot}*/usr/bin/git-upload-archive
+rm -f %{buildroot}*/usr/bin/git-upload-pack
+rm -f %{buildroot}*/usr/bin/scalar
+rm -f %{buildroot}*/usr/libexec/git-core/git
+rm -f %{buildroot}*/usr/libexec/git-core/git-add
+rm -f %{buildroot}*/usr/libexec/git-core/git-am
+rm -f %{buildroot}*/usr/libexec/git-core/git-annotate
+rm -f %{buildroot}*/usr/libexec/git-core/git-apply
+rm -f %{buildroot}*/usr/libexec/git-core/git-archive
+rm -f %{buildroot}*/usr/libexec/git-core/git-bisect
+rm -f %{buildroot}*/usr/libexec/git-core/git-blame
+rm -f %{buildroot}*/usr/libexec/git-core/git-branch
+rm -f %{buildroot}*/usr/libexec/git-core/git-bugreport
+rm -f %{buildroot}*/usr/libexec/git-core/git-bundle
+rm -f %{buildroot}*/usr/libexec/git-core/git-cat-file
+rm -f %{buildroot}*/usr/libexec/git-core/git-check-attr
+rm -f %{buildroot}*/usr/libexec/git-core/git-check-ignore
+rm -f %{buildroot}*/usr/libexec/git-core/git-check-mailmap
+rm -f %{buildroot}*/usr/libexec/git-core/git-check-ref-format
+rm -f %{buildroot}*/usr/libexec/git-core/git-checkout
+rm -f %{buildroot}*/usr/libexec/git-core/git-checkout--worker
+rm -f %{buildroot}*/usr/libexec/git-core/git-checkout-index
+rm -f %{buildroot}*/usr/libexec/git-core/git-cherry
+rm -f %{buildroot}*/usr/libexec/git-core/git-cherry-pick
+rm -f %{buildroot}*/usr/libexec/git-core/git-clean
+rm -f %{buildroot}*/usr/libexec/git-core/git-clone
+rm -f %{buildroot}*/usr/libexec/git-core/git-column
+rm -f %{buildroot}*/usr/libexec/git-core/git-commit
+rm -f %{buildroot}*/usr/libexec/git-core/git-commit-graph
+rm -f %{buildroot}*/usr/libexec/git-core/git-commit-tree
+rm -f %{buildroot}*/usr/libexec/git-core/git-config
+rm -f %{buildroot}*/usr/libexec/git-core/git-count-objects
+rm -f %{buildroot}*/usr/libexec/git-core/git-credential
+rm -f %{buildroot}*/usr/libexec/git-core/git-credential-cache
+rm -f %{buildroot}*/usr/libexec/git-core/git-credential-cache--daemon
+rm -f %{buildroot}*/usr/libexec/git-core/git-credential-store
+rm -f %{buildroot}*/usr/libexec/git-core/git-daemon
+rm -f %{buildroot}*/usr/libexec/git-core/git-describe
+rm -f %{buildroot}*/usr/libexec/git-core/git-diagnose
+rm -f %{buildroot}*/usr/libexec/git-core/git-diff
+rm -f %{buildroot}*/usr/libexec/git-core/git-diff-files
+rm -f %{buildroot}*/usr/libexec/git-core/git-diff-index
+rm -f %{buildroot}*/usr/libexec/git-core/git-diff-tree
+rm -f %{buildroot}*/usr/libexec/git-core/git-difftool
+rm -f %{buildroot}*/usr/libexec/git-core/git-fast-export
+rm -f %{buildroot}*/usr/libexec/git-core/git-fast-import
+rm -f %{buildroot}*/usr/libexec/git-core/git-fetch
+rm -f %{buildroot}*/usr/libexec/git-core/git-fetch-pack
+rm -f %{buildroot}*/usr/libexec/git-core/git-fmt-merge-msg
+rm -f %{buildroot}*/usr/libexec/git-core/git-for-each-ref
+rm -f %{buildroot}*/usr/libexec/git-core/git-for-each-repo
+rm -f %{buildroot}*/usr/libexec/git-core/git-format-patch
+rm -f %{buildroot}*/usr/libexec/git-core/git-fsck
+rm -f %{buildroot}*/usr/libexec/git-core/git-fsck-objects
+rm -f %{buildroot}*/usr/libexec/git-core/git-fsmonitor--daemon
+rm -f %{buildroot}*/usr/libexec/git-core/git-gc
+rm -f %{buildroot}*/usr/libexec/git-core/git-get-tar-commit-id
+rm -f %{buildroot}*/usr/libexec/git-core/git-grep
+rm -f %{buildroot}*/usr/libexec/git-core/git-hash-object
+rm -f %{buildroot}*/usr/libexec/git-core/git-help
+rm -f %{buildroot}*/usr/libexec/git-core/git-hook
+rm -f %{buildroot}*/usr/libexec/git-core/git-http-backend
+rm -f %{buildroot}*/usr/libexec/git-core/git-http-fetch
+rm -f %{buildroot}*/usr/libexec/git-core/git-http-push
+rm -f %{buildroot}*/usr/libexec/git-core/git-imap-send
+rm -f %{buildroot}*/usr/libexec/git-core/git-index-pack
+rm -f %{buildroot}*/usr/libexec/git-core/git-init
+rm -f %{buildroot}*/usr/libexec/git-core/git-init-db
+rm -f %{buildroot}*/usr/libexec/git-core/git-interpret-trailers
+rm -f %{buildroot}*/usr/libexec/git-core/git-log
+rm -f %{buildroot}*/usr/libexec/git-core/git-ls-files
+rm -f %{buildroot}*/usr/libexec/git-core/git-ls-remote
+rm -f %{buildroot}*/usr/libexec/git-core/git-ls-tree
+rm -f %{buildroot}*/usr/libexec/git-core/git-mailinfo
+rm -f %{buildroot}*/usr/libexec/git-core/git-mailsplit
+rm -f %{buildroot}*/usr/libexec/git-core/git-maintenance
+rm -f %{buildroot}*/usr/libexec/git-core/git-merge
+rm -f %{buildroot}*/usr/libexec/git-core/git-merge-base
+rm -f %{buildroot}*/usr/libexec/git-core/git-merge-file
+rm -f %{buildroot}*/usr/libexec/git-core/git-merge-index
+rm -f %{buildroot}*/usr/libexec/git-core/git-merge-ours
+rm -f %{buildroot}*/usr/libexec/git-core/git-merge-recursive
+rm -f %{buildroot}*/usr/libexec/git-core/git-merge-subtree
+rm -f %{buildroot}*/usr/libexec/git-core/git-merge-tree
+rm -f %{buildroot}*/usr/libexec/git-core/git-mktag
+rm -f %{buildroot}*/usr/libexec/git-core/git-mktree
+rm -f %{buildroot}*/usr/libexec/git-core/git-multi-pack-index
+rm -f %{buildroot}*/usr/libexec/git-core/git-mv
+rm -f %{buildroot}*/usr/libexec/git-core/git-name-rev
+rm -f %{buildroot}*/usr/libexec/git-core/git-notes
+rm -f %{buildroot}*/usr/libexec/git-core/git-pack-objects
+rm -f %{buildroot}*/usr/libexec/git-core/git-pack-redundant
+rm -f %{buildroot}*/usr/libexec/git-core/git-pack-refs
+rm -f %{buildroot}*/usr/libexec/git-core/git-patch-id
+rm -f %{buildroot}*/usr/libexec/git-core/git-prune
+rm -f %{buildroot}*/usr/libexec/git-core/git-prune-packed
+rm -f %{buildroot}*/usr/libexec/git-core/git-pull
+rm -f %{buildroot}*/usr/libexec/git-core/git-push
+rm -f %{buildroot}*/usr/libexec/git-core/git-range-diff
+rm -f %{buildroot}*/usr/libexec/git-core/git-read-tree
+rm -f %{buildroot}*/usr/libexec/git-core/git-rebase
+rm -f %{buildroot}*/usr/libexec/git-core/git-receive-pack
+rm -f %{buildroot}*/usr/libexec/git-core/git-reflog
+rm -f %{buildroot}*/usr/libexec/git-core/git-remote
+rm -f %{buildroot}*/usr/libexec/git-core/git-remote-ext
+rm -f %{buildroot}*/usr/libexec/git-core/git-remote-fd
+rm -f %{buildroot}*/usr/libexec/git-core/git-remote-ftp
+rm -f %{buildroot}*/usr/libexec/git-core/git-remote-ftps
+rm -f %{buildroot}*/usr/libexec/git-core/git-remote-http
+rm -f %{buildroot}*/usr/libexec/git-core/git-remote-https
+rm -f %{buildroot}*/usr/libexec/git-core/git-repack
+rm -f %{buildroot}*/usr/libexec/git-core/git-replace
+rm -f %{buildroot}*/usr/libexec/git-core/git-rerere
+rm -f %{buildroot}*/usr/libexec/git-core/git-reset
+rm -f %{buildroot}*/usr/libexec/git-core/git-restore
+rm -f %{buildroot}*/usr/libexec/git-core/git-rev-list
+rm -f %{buildroot}*/usr/libexec/git-core/git-rev-parse
+rm -f %{buildroot}*/usr/libexec/git-core/git-revert
+rm -f %{buildroot}*/usr/libexec/git-core/git-rm
+rm -f %{buildroot}*/usr/libexec/git-core/git-send-pack
+rm -f %{buildroot}*/usr/libexec/git-core/git-sh-i18n--envsubst
+rm -f %{buildroot}*/usr/libexec/git-core/git-shell
+rm -f %{buildroot}*/usr/libexec/git-core/git-shortlog
+rm -f %{buildroot}*/usr/libexec/git-core/git-show
+rm -f %{buildroot}*/usr/libexec/git-core/git-show-branch
+rm -f %{buildroot}*/usr/libexec/git-core/git-show-index
+rm -f %{buildroot}*/usr/libexec/git-core/git-show-ref
+rm -f %{buildroot}*/usr/libexec/git-core/git-sparse-checkout
+rm -f %{buildroot}*/usr/libexec/git-core/git-stage
+rm -f %{buildroot}*/usr/libexec/git-core/git-stash
+rm -f %{buildroot}*/usr/libexec/git-core/git-status
+rm -f %{buildroot}*/usr/libexec/git-core/git-stripspace
+rm -f %{buildroot}*/usr/libexec/git-core/git-submodule--helper
+rm -f %{buildroot}*/usr/libexec/git-core/git-switch
+rm -f %{buildroot}*/usr/libexec/git-core/git-symbolic-ref
+rm -f %{buildroot}*/usr/libexec/git-core/git-tag
+rm -f %{buildroot}*/usr/libexec/git-core/git-unpack-file
+rm -f %{buildroot}*/usr/libexec/git-core/git-unpack-objects
+rm -f %{buildroot}*/usr/libexec/git-core/git-update-index
+rm -f %{buildroot}*/usr/libexec/git-core/git-update-ref
+rm -f %{buildroot}*/usr/libexec/git-core/git-update-server-info
+rm -f %{buildroot}*/usr/libexec/git-core/git-upload-archive
+rm -f %{buildroot}*/usr/libexec/git-core/git-upload-pack
+rm -f %{buildroot}*/usr/libexec/git-core/git-var
+rm -f %{buildroot}*/usr/libexec/git-core/git-verify-commit
+rm -f %{buildroot}*/usr/libexec/git-core/git-verify-pack
+rm -f %{buildroot}*/usr/libexec/git-core/git-verify-tag
+rm -f %{buildroot}*/usr/libexec/git-core/git-version
+rm -f %{buildroot}*/usr/libexec/git-core/git-whatchanged
+rm -f %{buildroot}*/usr/libexec/git-core/git-worktree
+rm -f %{buildroot}*/usr/libexec/git-core/git-write-tree
+rm -f %{buildroot}*/usr/libexec/git-core/scalar
 ## install_append content
 make -C Documentation DESTDIR=%{buildroot} %{?_smp_mflags} man install
 (
@@ -175,12 +331,6 @@ find ./usr -type d -empty -delete || :
 
 %files bin
 %defattr(-,root,root,-)
-/V3/usr/bin/git
-/V3/usr/bin/git-receive-pack
-/V3/usr/bin/git-shell
-/V3/usr/bin/git-upload-archive
-/V3/usr/bin/git-upload-pack
-/V3/usr/bin/scalar
 /usr/bin/gitk
 
 %files data
@@ -259,155 +409,6 @@ find ./usr -type d -empty -delete || :
 
 %files libexec
 %defattr(-,root,root,-)
-/V3/usr/libexec/git-core/git
-/V3/usr/libexec/git-core/git-add
-/V3/usr/libexec/git-core/git-am
-/V3/usr/libexec/git-core/git-annotate
-/V3/usr/libexec/git-core/git-apply
-/V3/usr/libexec/git-core/git-archive
-/V3/usr/libexec/git-core/git-bisect
-/V3/usr/libexec/git-core/git-blame
-/V3/usr/libexec/git-core/git-branch
-/V3/usr/libexec/git-core/git-bugreport
-/V3/usr/libexec/git-core/git-bundle
-/V3/usr/libexec/git-core/git-cat-file
-/V3/usr/libexec/git-core/git-check-attr
-/V3/usr/libexec/git-core/git-check-ignore
-/V3/usr/libexec/git-core/git-check-mailmap
-/V3/usr/libexec/git-core/git-check-ref-format
-/V3/usr/libexec/git-core/git-checkout
-/V3/usr/libexec/git-core/git-checkout--worker
-/V3/usr/libexec/git-core/git-checkout-index
-/V3/usr/libexec/git-core/git-cherry
-/V3/usr/libexec/git-core/git-cherry-pick
-/V3/usr/libexec/git-core/git-clean
-/V3/usr/libexec/git-core/git-clone
-/V3/usr/libexec/git-core/git-column
-/V3/usr/libexec/git-core/git-commit
-/V3/usr/libexec/git-core/git-commit-graph
-/V3/usr/libexec/git-core/git-commit-tree
-/V3/usr/libexec/git-core/git-config
-/V3/usr/libexec/git-core/git-count-objects
-/V3/usr/libexec/git-core/git-credential
-/V3/usr/libexec/git-core/git-credential-cache
-/V3/usr/libexec/git-core/git-credential-cache--daemon
-/V3/usr/libexec/git-core/git-credential-store
-/V3/usr/libexec/git-core/git-daemon
-/V3/usr/libexec/git-core/git-describe
-/V3/usr/libexec/git-core/git-diagnose
-/V3/usr/libexec/git-core/git-diff
-/V3/usr/libexec/git-core/git-diff-files
-/V3/usr/libexec/git-core/git-diff-index
-/V3/usr/libexec/git-core/git-diff-tree
-/V3/usr/libexec/git-core/git-difftool
-/V3/usr/libexec/git-core/git-fast-export
-/V3/usr/libexec/git-core/git-fast-import
-/V3/usr/libexec/git-core/git-fetch
-/V3/usr/libexec/git-core/git-fetch-pack
-/V3/usr/libexec/git-core/git-fmt-merge-msg
-/V3/usr/libexec/git-core/git-for-each-ref
-/V3/usr/libexec/git-core/git-for-each-repo
-/V3/usr/libexec/git-core/git-format-patch
-/V3/usr/libexec/git-core/git-fsck
-/V3/usr/libexec/git-core/git-fsck-objects
-/V3/usr/libexec/git-core/git-fsmonitor--daemon
-/V3/usr/libexec/git-core/git-gc
-/V3/usr/libexec/git-core/git-get-tar-commit-id
-/V3/usr/libexec/git-core/git-grep
-/V3/usr/libexec/git-core/git-hash-object
-/V3/usr/libexec/git-core/git-help
-/V3/usr/libexec/git-core/git-hook
-/V3/usr/libexec/git-core/git-http-backend
-/V3/usr/libexec/git-core/git-http-fetch
-/V3/usr/libexec/git-core/git-http-push
-/V3/usr/libexec/git-core/git-imap-send
-/V3/usr/libexec/git-core/git-index-pack
-/V3/usr/libexec/git-core/git-init
-/V3/usr/libexec/git-core/git-init-db
-/V3/usr/libexec/git-core/git-interpret-trailers
-/V3/usr/libexec/git-core/git-log
-/V3/usr/libexec/git-core/git-ls-files
-/V3/usr/libexec/git-core/git-ls-remote
-/V3/usr/libexec/git-core/git-ls-tree
-/V3/usr/libexec/git-core/git-mailinfo
-/V3/usr/libexec/git-core/git-mailsplit
-/V3/usr/libexec/git-core/git-maintenance
-/V3/usr/libexec/git-core/git-merge
-/V3/usr/libexec/git-core/git-merge-base
-/V3/usr/libexec/git-core/git-merge-file
-/V3/usr/libexec/git-core/git-merge-index
-/V3/usr/libexec/git-core/git-merge-ours
-/V3/usr/libexec/git-core/git-merge-recursive
-/V3/usr/libexec/git-core/git-merge-subtree
-/V3/usr/libexec/git-core/git-merge-tree
-/V3/usr/libexec/git-core/git-mktag
-/V3/usr/libexec/git-core/git-mktree
-/V3/usr/libexec/git-core/git-multi-pack-index
-/V3/usr/libexec/git-core/git-mv
-/V3/usr/libexec/git-core/git-name-rev
-/V3/usr/libexec/git-core/git-notes
-/V3/usr/libexec/git-core/git-pack-objects
-/V3/usr/libexec/git-core/git-pack-redundant
-/V3/usr/libexec/git-core/git-pack-refs
-/V3/usr/libexec/git-core/git-patch-id
-/V3/usr/libexec/git-core/git-prune
-/V3/usr/libexec/git-core/git-prune-packed
-/V3/usr/libexec/git-core/git-pull
-/V3/usr/libexec/git-core/git-push
-/V3/usr/libexec/git-core/git-range-diff
-/V3/usr/libexec/git-core/git-read-tree
-/V3/usr/libexec/git-core/git-rebase
-/V3/usr/libexec/git-core/git-receive-pack
-/V3/usr/libexec/git-core/git-reflog
-/V3/usr/libexec/git-core/git-remote
-/V3/usr/libexec/git-core/git-remote-ext
-/V3/usr/libexec/git-core/git-remote-fd
-/V3/usr/libexec/git-core/git-remote-ftp
-/V3/usr/libexec/git-core/git-remote-ftps
-/V3/usr/libexec/git-core/git-remote-http
-/V3/usr/libexec/git-core/git-remote-https
-/V3/usr/libexec/git-core/git-repack
-/V3/usr/libexec/git-core/git-replace
-/V3/usr/libexec/git-core/git-rerere
-/V3/usr/libexec/git-core/git-reset
-/V3/usr/libexec/git-core/git-restore
-/V3/usr/libexec/git-core/git-rev-list
-/V3/usr/libexec/git-core/git-rev-parse
-/V3/usr/libexec/git-core/git-revert
-/V3/usr/libexec/git-core/git-rm
-/V3/usr/libexec/git-core/git-send-pack
-/V3/usr/libexec/git-core/git-sh-i18n--envsubst
-/V3/usr/libexec/git-core/git-shell
-/V3/usr/libexec/git-core/git-shortlog
-/V3/usr/libexec/git-core/git-show
-/V3/usr/libexec/git-core/git-show-branch
-/V3/usr/libexec/git-core/git-show-index
-/V3/usr/libexec/git-core/git-show-ref
-/V3/usr/libexec/git-core/git-sparse-checkout
-/V3/usr/libexec/git-core/git-stage
-/V3/usr/libexec/git-core/git-stash
-/V3/usr/libexec/git-core/git-status
-/V3/usr/libexec/git-core/git-stripspace
-/V3/usr/libexec/git-core/git-submodule--helper
-/V3/usr/libexec/git-core/git-switch
-/V3/usr/libexec/git-core/git-symbolic-ref
-/V3/usr/libexec/git-core/git-tag
-/V3/usr/libexec/git-core/git-unpack-file
-/V3/usr/libexec/git-core/git-unpack-objects
-/V3/usr/libexec/git-core/git-update-index
-/V3/usr/libexec/git-core/git-update-ref
-/V3/usr/libexec/git-core/git-update-server-info
-/V3/usr/libexec/git-core/git-upload-archive
-/V3/usr/libexec/git-core/git-upload-pack
-/V3/usr/libexec/git-core/git-var
-/V3/usr/libexec/git-core/git-verify-commit
-/V3/usr/libexec/git-core/git-verify-pack
-/V3/usr/libexec/git-core/git-verify-tag
-/V3/usr/libexec/git-core/git-version
-/V3/usr/libexec/git-core/git-whatchanged
-/V3/usr/libexec/git-core/git-worktree
-/V3/usr/libexec/git-core/git-write-tree
-/V3/usr/libexec/git-core/scalar
 /usr/libexec/git-core/git-gui
 /usr/libexec/git-core/git-gui--askpass
 
