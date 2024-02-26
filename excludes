@@ -153,3 +153,4 @@
 /usr/libexec/git-core/git-worktree
 /usr/libexec/git-core/git-write-tree
 /usr/libexec/git-core/scalar
+/usr/libexec/git-core/git-replay
