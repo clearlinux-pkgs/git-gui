@@ -6,10 +6,10 @@
 # autospec commit: da8b975
 #
 Name     : git-gui
-Version  : 2.43.2
-Release  : 70
-URL      : https://www.kernel.org/pub/software/scm/git/git-2.43.2.tar.xz
-Source0  : https://www.kernel.org/pub/software/scm/git/git-2.43.2.tar.xz
+Version  : 2.44.0
+Release  : 71
+URL      : https://www.kernel.org/pub/software/scm/git/git-2.44.0.tar.xz
+Source0  : https://www.kernel.org/pub/software/scm/git/git-2.44.0.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause BSL-1.0 GPL-2.0 MIT
@@ -91,10 +91,10 @@ man components for the git-gui package.
 
 
 %prep
-%setup -q -n git-2.43.2
-cd %{_builddir}/git-2.43.2
+%setup -q -n git-2.44.0
+cd %{_builddir}/git-2.44.0
 pushd ..
-cp -a git-2.43.2 buildavx2
+cp -a git-2.44.0 buildavx2
 popd
 
 %build
@@ -102,7 +102,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1707935214
+export SOURCE_DATE_EPOCH=1708962516
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -147,7 +147,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1707935214
+export SOURCE_DATE_EPOCH=1708962516
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp %{_builddir}/git-%{version}/COPYING %{buildroot}/usr/share/package-licenses/git-gui/3ee0019d4f4ea0a9d3f50800833f30dc14e2968e || :
@@ -414,6 +414,7 @@ find ./usr -type d -empty -delete || :
 
 %files libexec
 %defattr(-,root,root,-)
+/V3/usr/libexec/git-core/git-replay
 /usr/libexec/git-core/git-gui
 /usr/libexec/git-core/git-gui--askpass
 
