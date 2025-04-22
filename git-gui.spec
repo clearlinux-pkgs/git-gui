@@ -7,7 +7,7 @@
 #
 Name     : git-gui
 Version  : 2.49.0
-Release  : 86
+Release  : 87
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.49.0.tar.gz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.49.0.tar.gz
 Summary  : No detailed summary available
