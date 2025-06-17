@@ -7,7 +7,7 @@
 #
 Name     : git-gui
 Version  : 2.50.0
-Release  : 88
+Release  : 89
 URL      : https://www.kernel.org/pub/software/scm/git/git-2.50.0.tar.gz
 Source0  : https://www.kernel.org/pub/software/scm/git/git-2.50.0.tar.gz
 Summary  : No detailed summary available
@@ -104,7 +104,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1750170115
+export SOURCE_DATE_EPOCH=1750174675
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -149,7 +149,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1750170115
+export SOURCE_DATE_EPOCH=1750174675
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/git-gui
 cp %{_builddir}/git-%{version}/COPYING %{buildroot}/usr/share/package-licenses/git-gui/3ee0019d4f4ea0a9d3f50800833f30dc14e2968e || :
@@ -324,6 +324,7 @@ rm -f %{buildroot}*/usr/libexec/git-core/git-write-tree
 rm -f %{buildroot}*/usr/libexec/git-core/scalar
 rm -f %{buildroot}*/usr/libexec/git-core/git-replay
 rm -f %{buildroot}*/usr/libexec/git-core/git-refs
+rm -f %{buildroot}*/usr/libexec/git-core/git-diff-pairs
 ## install_append content
 make -C Documentation DESTDIR=%{buildroot} %{?_smp_mflags} man install
 (
@@ -420,7 +421,6 @@ find ./usr -type d -empty -delete || :
 
 %files libexec
 %defattr(-,root,root,-)
-/V3/usr/libexec/git-core/git-diff-pairs
 /usr/libexec/git-core/git-gui
 /usr/libexec/git-core/git-gui--askpass
 

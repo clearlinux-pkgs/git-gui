@@ -156,3 +156,4 @@
 /usr/libexec/git-core/scalar
 /usr/libexec/git-core/git-replay
 /usr/libexec/git-core/git-refs
+/usr/libexec/git-core/git-diff-pairs
